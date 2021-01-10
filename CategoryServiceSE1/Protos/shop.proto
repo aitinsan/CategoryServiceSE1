@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+option csharp_namespace = "CategoryServiceSE1.Protos";
+
+service Shop {
+	rpc AddCategory(CategoryCreate) returns (CategoryInfo);
+	rpc GetCategoryById(CategoryLookup) returns (CategoryInfo);
+	rpc AddProduct(ProductCreate) returns (ProductInfo);
+	rpc GetProductById(ProductLookup) returns (ProductInfo);
+	rpc GetProductByCategoryId(CategoryLookup) returns (stream ProductInfo);
+}
+message CategoryLookup{
+	int32 id = 1;
+}
+message  CategoryCreate{
+	string name = 1;
+	int32 parentCategoryId = 2;
+}
+message CategoryInfo{
+	int32 id = 1;
+	string name = 2;
+	int32 parentCategoryId = 3;
+}
+message ProductLookup{
+	int32 id = 1;
+}
+message ProductCreate{
+	string name = 1;
+	string description = 2;
+	double price = 3;
+	int32 categoryId = 4;
+}
+message ProductInfo{
+	int32 id = 1;
+	string name = 2;
+	string description = 3;
+	double price = 4;
+	CategoryInfo categoryId = 5 ;
+}
