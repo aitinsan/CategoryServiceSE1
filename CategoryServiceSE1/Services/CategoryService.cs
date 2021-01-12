@@ -60,7 +60,7 @@ namespace CategoryServiceSE1.Services
                 Name = res.Name,
                 Description = res.Description,
                 Price = res.Price,
-                //CategoryId = res.CategoryId
+                CategoryId = categoryInfo
 
             };
             return productInfo;
@@ -104,4 +104,4 @@ namespace CategoryServiceSE1.Services
         }
     }
 }
-}
+
