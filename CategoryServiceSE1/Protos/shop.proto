@@ -8,6 +8,7 @@ service Shop {
 	rpc AddProduct(ProductCreate) returns (ProductInfo);
 	rpc GetProductById(ProductLookup) returns (ProductInfo);
 	rpc GetProductByCategoryId(CategoryLookup) returns (stream ProductInfo);
+	rpc ChangeCategoryOfProduct(ProductInfo) returns (ProductInfo);
 }
 message CategoryLookup{
 	int32 id = 1;
